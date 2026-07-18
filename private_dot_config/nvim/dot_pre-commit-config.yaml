@@ -1,0 +1,20 @@
+repos:
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v2.3.1
+    hooks:
+      - id: stylua-system
+
+  - repo: local
+    hooks:
+      - id: luacheck
+        name: luacheck
+        language: docker_image
+        entry: pipelinecomponents/luacheck luacheck
+        types: [lua]
+
+      - id: nvim-headless
+        name: nvim headless startup check
+        language: system
+        entry: nvim --headless +qa
+        pass_filenames: false
+        always_run: true

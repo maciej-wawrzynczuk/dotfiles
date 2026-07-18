@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(git ls-remote:*)",
+      "Bash(git:*)",
+      "Bash(nvim:*)",
+      "Bash(pre-commit run:*)",
+      "Bash(python3:*)"
+    ]
+  }
+}
