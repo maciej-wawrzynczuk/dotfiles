@@ -6,19 +6,15 @@ return {
 	},
 	config = function()
 		require("mason").setup()
-		require("mason-lspconfig").setup({
-            ensure_installed = { "rust_analyzer",},
-			handlers = {
-                ["rust_analyzer"] = function()
-                    require('lspconfig').rust_analyzer.setup({
-                        settings = {
-                            ['rust-analyzer'] = {
-                                check = { command = "clippy" },
-                            },
-                        },
-                    })
-                end,
+		vim.lsp.config("rust_analyzer", {
+			settings = {
+				["rust-analyzer"] = {
+					check = { command = "clippy" },
+				},
 			},
+		})
+		require("mason-lspconfig").setup({
+			ensure_installed = { "rust_analyzer" },
 		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
