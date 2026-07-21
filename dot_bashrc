@@ -118,3 +118,4 @@ fi
 . "$HOME/.cargo/env"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(fzf --bash)"
