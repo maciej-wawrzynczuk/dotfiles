@@ -13,13 +13,17 @@ return {
                 },
             },
         })
+        vim.lsp.config("ltex_plus", {
+            on_attach = function(_, buffnr)
+                require("ltex-utils").on_attach(buffnr)
+            end,
+        })
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "rust_analyzer",
                 "lua_ls",
                 "ltex_plus",
                 "bashls",
-                "yamlint",
             },
         })
 
