@@ -117,5 +117,9 @@ if ! shopt -oq posix; then
 fi
 . "$HOME/.cargo/env"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+brew_bin=/home/linuxbrew/.linuxbrew/bin/brew
+if [ -x "$brew_bin" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 eval "$(fzf --bash)"
