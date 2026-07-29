@@ -22,6 +22,22 @@ return {
                 }
             }
         })
+        vim.lsp.config("ltex_plus", {
+            settings = {
+                ltex = { language = "auto" }
+            }
+        })
+        vim.api.nvim_create_autocmd("LspAttach", {
+            callback = function(args)
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
+                if not client or client.name ~= "ltex_plus" then
+                    return
+                end
+                require("ltex_extra").setup({
+                    path = vim.fn.stdpath("data") .. "/ltex",
+                })
+            end
+        })
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "rust_analyzer",
