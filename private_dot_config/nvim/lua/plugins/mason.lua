@@ -13,20 +13,6 @@ return {
 				},
 			},
 		})
-		vim.lsp.config("ltex_plus", {
-			on_attach = function(_, buffnr)
-				require("ltex-utils").on_attach(buffnr)
-			end,
-			settings = {
-				ltex = {
-					configurationTarget = {
-						dictionary = "user", -- Use global instead of "workspaceFolder"
-						disabledRules = "user",
-						hiddenFalsePositives = "user",
-					},
-				},
-			},
-		})
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"rust_analyzer",
