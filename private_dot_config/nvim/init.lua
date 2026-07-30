@@ -5,6 +5,7 @@ vim.g.loaded_ruby_provider = 0
 
 vim.opt.mouse = ""
 vim.opt.number = true
+vim.opt.list = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.tabstop = 4
@@ -13,12 +14,14 @@ vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 vim.o.termguicolors = true
 
--- I don't want to force color theme anymore
-
 vim.o.updatetime = 300
 
 -- remap terminal exit to ESC
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+
+-- my stuff
+require("my_stuff.daily")
+vim.keymap.set("n", "<leader>dn", "<cmd>Daily<cr>")
 
 vim.api.nvim_create_autocmd("CursorHold", {
 	callback = function()
@@ -43,6 +46,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-
 
 vim.cmd('colorscheme tokyonight-day')
