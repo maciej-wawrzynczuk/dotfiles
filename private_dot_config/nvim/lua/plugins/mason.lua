@@ -24,7 +24,7 @@ return {
         })
         vim.lsp.config("ltex_plus", {
             settings = {
-                ltex = { language = "auto" }
+                ltex = { language = "en-US" }
             }
         })
         vim.api.nvim_create_autocmd("LspAttach", {
