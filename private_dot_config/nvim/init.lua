@@ -13,8 +13,9 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 vim.o.termguicolors = true
-
 vim.o.updatetime = 300
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = "nc"
 
 -- remap terminal exit to ESC
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
